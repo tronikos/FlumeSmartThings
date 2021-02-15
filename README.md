@@ -34,7 +34,7 @@ If you have [GitHub IDE integration](https://docs.smartthings.com/en/latest/tool
 ### Proxy
 Flume API has a rate limit of 120 requests per hour per IP address. SmartThings SmartApps run on the cloud so this limit is shared among other users of this SmartApp. To avoid rate limiting it's recommended to setup a proxy running in your local network that the SmartThings hub will locally connect to.
 
-The proxy is implemeted in Node.js, see [code](https://github.com/tronikos/FlumeSmartThings/blob/main/flumewater-proxy/index.js), that can run pretty much anywhere, e.g. Windows/Linux/macOS/Android etc. In my case, my hub is a SmartThings Link for NVIDIA SHIELD, so the proxy runs on the NVIDIA SHIELD that is always on. I used Termux. Do a web search how to run Node.js on whatever machine you have available. It needs to be in the same LAN as your SmartThings hub. And then enter lcoal_ip:port in the SmartApp settings.
+The proxy is implemeted in Node.js, see [code](https://github.com/tronikos/FlumeSmartThings/blob/main/flumewater-proxy/index.js), that can run pretty much anywhere, e.g. Windows/Linux/macOS/Android etc. In my case, my hub is a SmartThings Link for NVIDIA SHIELD, so the proxy runs on the NVIDIA SHIELD that is always on. I used Termux. Do a web search how to run Node.js on whatever machine you have available. It needs to be in the same LAN as your SmartThings hub. And then enter local_ip:port in the SmartApp settings.
 
 ## Screenshots
 ![alt text](https://raw.githubusercontent.com/tronikos/FlumeSmartThings/main/screenshots/flume-device.png "Device screenshot")

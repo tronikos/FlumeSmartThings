@@ -281,7 +281,7 @@ void processFetchUsageAlertNotificationsResponse(Map respData) {
     logger("getAlertingDeviceIds returned: $alertingDeviceIds", "info")
     childDevices.each { device ->
         String wetDry = (device.deviceNetworkId in alertingDeviceIds) ? "wet" : "dry"
-        logger("Changing $device to $wetDry", "info")
+        logger("Setting $device to $wetDry", "info")
         device.setWater(wetDry)
     }
 }
@@ -650,8 +650,6 @@ void updateLocation(String locationId, boolean newAwayMode, String callbackMetho
 }
 
 void issueHttpRequest(String httpMethod, Map params, String callbackMethod, Map callbackData) {
-    logger("Fetching $params", "debug")
-
     // Manually change this to true to cache API responses.
     // Useful only while debugging to avoid rate limit errors.
     boolean cacheResponsesForDebugging = false
@@ -659,6 +657,7 @@ void issueHttpRequest(String httpMethod, Map params, String callbackMethod, Map 
         cacheResponsesForDebugging = false
     }
     if (cacheResponsesForDebugging) {
+        logger("Requesting via cache: $params", "debug")
         Map respData = state[params.path]
         if (respData) {
             logger("Using cached response for ${params.path}", "info")
@@ -690,10 +689,12 @@ void issueHttpRequest(String httpMethod, Map params, String callbackMethod, Map 
         params.path = "/flumewater" + params.path
         params.headers["HOST"] = settings.proxyHost
         addCallbackDataToHttpHeader(params.headers, callbackData)
+        logger("Requesting via local proxy: $params", "debug")
         sendHubCommand(new physicalgraph.device.HubAction(params, null, [callback: callbackMethod]))
         return
     }
 
+    logger("Requesting: $params", "debug")
     switch (httpMethod) {
         case "GET":
             asynchttp_v1.get(callbackMethod, params, callbackData)

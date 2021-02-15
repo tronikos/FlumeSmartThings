@@ -20,9 +20,9 @@ definition(
     author: "tronikos",
     description: "SmartApp for Flume Smart Home Water Monitor",
     category: "My Apps",
-    iconUrl: "https://media.licdn.com/dms/image/C4E0BAQE49EkvZ1NyIg/company-logo_200_200/0?e=2159024400&v=beta&t=GUWW8DaEjcGjtnGSFXTIHFkmEb3hGmUDMLjZTHQjBG8",
-    iconX2Url: "https://media.licdn.com/dms/image/C4E0BAQE49EkvZ1NyIg/company-logo_200_200/0?e=2159024400&v=beta&t=GUWW8DaEjcGjtnGSFXTIHFkmEb3hGmUDMLjZTHQjBG8",
-    iconX3Url: "https://media.licdn.com/dms/image/C4E0BAQE49EkvZ1NyIg/company-logo_200_200/0?e=2159024400&v=beta&t=GUWW8DaEjcGjtnGSFXTIHFkmEb3hGmUDMLjZTHQjBG8",
+    iconUrl: "https://raw.githubusercontent.com/tronikos/FlumeSmartThings/main/icons/flume_logo.png",
+    iconX2Url: "https://raw.githubusercontent.com/tronikos/FlumeSmartThings/main/icons/flume_logo.png",
+    iconX3Url: "https://raw.githubusercontent.com/tronikos/FlumeSmartThings/main/icons/flume_logo.png",
     singleInstance: true,
 ) {
     appSetting "FlumeAPI_Key"

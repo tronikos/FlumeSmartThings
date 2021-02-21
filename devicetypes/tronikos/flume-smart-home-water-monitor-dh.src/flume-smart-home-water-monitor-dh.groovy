@@ -18,7 +18,9 @@ metadata {
         namespace: "tronikos",
         author: "tronikos",
         mnmn: "SmartThingsCommunity",
-        vid: "d665a967-eccd-3ac7-bb72-b3d4c626f4dd",
+        vid: "5e6f7548-0ff3-3f30-b249-a6990416559e", // waterSensor in dashboard; working icon (dry or wet), no button
+        //vid: "39991054-44cc-3013-9652-53eed3d67853", // watermeterflow and watermetermonitorstatus in dashboard; broken icon (always wet), toggle button works to pause but without state
+        //vid: "fa1a8164-6be5-313f-a2ad-43f6a1f2f65a", // waterSensor and watermetermonitorstatus in dashboard; working icon (dry or wet), toggle button works to pause but without state
     ) {
         capability "Actuator"
         capability "Sensor"
@@ -26,12 +28,12 @@ metadata {
         capability "Water Sensor"
         // commands: refresh
         capability "Refresh"
-        // attributes: listElement
-        // commands: setListElement(thisCurrentMinFlow|todayFlow|monthFlow|yearFlow)
-        capability "mediapepper07880.watermeterflow"
         // attributes: waterMeterMonitorState: paused|monitoring
         // commands: setWaterMeterMonitorState(paused|monitoring)
-        capability "mediapepper07880.watermetermonitorstatus"
+        capability "againaddress05141.watermetermonitorstatus"
+        // attributes: listElement
+        // commands: setListElement(thisCurrentMinFlow|todayFlow|monthFlow|yearFlow)
+        capability "againaddress05141.watermeterflow"
         // Following attributes aren't exposed in the UI. They are only for automations such as webCoRE.
         attribute "batteryLevel", "string"
         attribute "awayMode", "boolean"

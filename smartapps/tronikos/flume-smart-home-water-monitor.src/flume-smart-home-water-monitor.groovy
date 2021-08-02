@@ -51,7 +51,7 @@ preferences {
                 name: "wetOnAnyUsageAlert",
                 type: "bool",
                 title: "Wet on any usage alert?",
-                description: "Wet on any usage alert and not just low flow leaks?",
+                description: "Wet on any usage alert and not just leaks?",
                 defaultValue: true,
                 required: false,
             )
@@ -572,7 +572,7 @@ Set getAlertingDeviceIds(Map respData) {
         if (settings.wetOnlyOnUnreadAlerts && notification.read) {
             return
         }
-        if (notification.message.contains("Low Flow Leak") || settings.wetOnAnyUsageAlert) {
+        if (notification.message.contains("Leak") || settings.wetOnAnyUsageAlert) {
             alertingDeviceIds.add(notification.device_id)
         }
     }
